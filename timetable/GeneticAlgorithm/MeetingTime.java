@@ -9,6 +9,6 @@ public class MeetingTime {
         this.time = time;
     }
 
-    public String getiId() { return id; }
+    public String getId() { return id; }
     public String getTime() { return time; }
 }

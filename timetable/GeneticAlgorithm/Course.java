@@ -1,12 +1,13 @@
 package timetable.GeneticAlgorithm;
+import java.util.ArrayList;
 
 public class Course {
     private String number = null;
     private String name = null;
     private int maxNumberOfStudents;
-    private Instructor[] instructors;
+    private ArrayList<Instructor> instructors;
 
-    public Course(String number, String name, Instructor[] instructors, int maxNumberOfStudents) {
+    public Course(String number, String name, ArrayList<Instructor> instructors, int maxNumberOfStudents) {
         this.number = number;
         this.name = name;
         this.instructors = instructors;
@@ -15,7 +16,7 @@ public class Course {
 
     public String getNumber() { return number; }
     public String getName() { return name; }
-    public Instructor[] getInstructors() { return instructors; }
+    public ArrayList<Instructor> getInstructors() { return instructors; }
     public int getmaxNumberOfStudents() { return maxNumberOfStudents; }
     public String toString() { return name; }
 }

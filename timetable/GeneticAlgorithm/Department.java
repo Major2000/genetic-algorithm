@@ -1,14 +1,16 @@
 package timetable.GeneticAlgorithm;
+import java.util.ArrayList;
+
 
 public class Department {
     private String name;
-    private Course[] courses;
+    private ArrayList<Course> courses;
     
-    public Department(String name, Course[] courses) {
+    public Department(String name, ArrayList<Course> courses) {
         this.name = name;
         this.courses = courses;
     }
 
     public String getName() { return name; }
-    public Course[] getCourses() { return courses; }
+    public ArrayList<Course> getCourses() { return courses; }
 }
