@@ -17,6 +17,5 @@ public class Course {
     public String getName() { return name; }
     public Instructor[] getInstructors() { return instructors; }
     public int getmaxNumberOfStudents() { return maxNumberOfStudents; }
-
-
+    public String toString() { return name; }
 }
