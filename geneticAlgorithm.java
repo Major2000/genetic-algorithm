@@ -1,29 +1,29 @@
 import java.util.Random;
 
 
-public class SimpleDemoGA {
+public class geneticAlgorithm {
 
     Population population  = new Population();
     Individual fittest;
-    Indivudual SecondFittest;
+    Individual secondFittest;
     int generationCount = 0;
 
     public static void main(String[] args) {
 
         Random rn = new Random();
 
-        SimpleDemoGA demo = new SimpleDemoGA();
+        geneticAlgorithm demo = new geneticAlgorithm();
 
         //Initialize Population
-        demo.population.InitializePopulation(10);
+        demo.population.initializePopulation(10);
 
         //Calculate fitness of each individual
-        demo.population.calculateFitness()
+        demo.population.calculateFitness();
 
-        System.out.println("Generation: " + demo.generationCount + " Fittest: " +  demo.population.fittest)
+        System.out.println("Generation: " + demo.generationCount + " Fittest: " +  demo.population.fittest);
 
         //while population gets an individual with maximum fitness
-        while (demo.population.fitness < 5) {
+        while (demo.population.fittest < 5) {
             ++demo.generationCount;
 
             //Do selection
@@ -43,7 +43,7 @@ public class SimpleDemoGA {
             //Calculate new fittest value
             demo.population.calculateFitness();
 
-            System.out.println("Generation: " + demo.generationCount + " Fittest: " +  demo.population.fittest)
+            System.out.println("Generation: " + demo.generationCount + " Fittest: " +  demo.population.fittest);
         }
 
         System.out.println("\nSolution found in generation: " + demo.generationCount);
@@ -66,7 +66,7 @@ public class SimpleDemoGA {
 
 
         //Select the second most fittest individual 
-        SecondFittest = population.getSecondFittest();
+        secondFittest = population.getSecondFittest();
     }
 
     //Crossover
@@ -179,7 +179,7 @@ class Population {
     public Individual getFittest() {
         int maxFit = Integer.MIN_VALUE;
         int maxFitIndex = 0;
-        for (int i = 0; i < individuals.lenght; i++) {
+        for (int i = 0; i < individuals.length; i++) {
             if (maxFit <= individuals[i].fitness) {
                 maxFit = individuals[i].fitness;
                 maxFitIndex = i;
@@ -192,7 +192,7 @@ class Population {
     //Get the second most fittest individual
     public Individual getSecondFittest() {
         int maxFit1 = 0;
-        int maxFit2 = o;
+        int maxFit2 = 0;
         for (int i = 0; i < individuals.length; i++) {
             if (individuals[i].fitness > individuals[maxFit1].fitness) {
                 maxFit2 = maxFit1;
@@ -210,7 +210,7 @@ class Population {
         int minFitIndex = 0;
         for (int i = 0; i < individuals.length; i++) {
             if (minFitVal >= individuals[i].fitness) {
-                minFitVal = individual[i].fitness;
+                minFitVal = individuals[i].fitness;
                 minFitIndex =  i;
             }
         }
