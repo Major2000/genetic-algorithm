@@ -54,7 +54,7 @@ public class geneticAlgorithm {
             System.out.print(demo.population.getFittest().genes[i]);
         }
 
-        System.out.println("");
+        System.out.println("\n");
         
     }
 
