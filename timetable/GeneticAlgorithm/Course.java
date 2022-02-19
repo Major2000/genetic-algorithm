@@ -17,6 +17,6 @@ public class Course {
     public String getNumber() { return number; }
     public String getName() { return name; }
     public ArrayList<Instructor> getInstructors() { return instructors; }
-    public int getmaxNumberOfStudents() { return maxNumberOfStudents; }
+    public int getMaxNumberOfStudents() { return maxNumberOfStudents; }
     public String toString() { return name; }
 }
