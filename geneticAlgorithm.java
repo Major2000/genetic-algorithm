@@ -55,6 +55,7 @@ public class geneticAlgorithm {
         }
 
         System.out.println("");
+        
 
     }
 
