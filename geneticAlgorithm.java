@@ -47,7 +47,7 @@ public class geneticAlgorithm {
         }
 
         System.out.println("\nSolution found in generation: " + demo.generationCount);
-        System.out.println("Fitness: " + demo.population.getFittest().fitness);
+        System.out.println("Fittest: " + demo.population.getFittest().fitness);
         System.out.print("Genes: ");
 
         for (int i = 0; i < 5; i++) {
