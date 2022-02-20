@@ -68,3 +68,5 @@ public class Data {
     public ArrayList<MeetingTime> getMeetingTimes() { return meetingTimes; }
     public int getNumberOfClasses() { return this.numberOfClasses; }
 }
+
+

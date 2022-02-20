@@ -9,14 +9,14 @@ public class Driver {
     public static final int TOURNAMENT_SELECTION_SIZE = 3;
     public static final int NUMBER_OF_ELITE_SCHEDULES = 1;
     private int scheduleNumber = 0;
-    private int classNumber = 1;
-    private Data data;
+    private static int classNumber = 1;
+    private static Data data;
 
 
     public static void main(String[] args) {
         Driver driver = new Driver();
         int generationNumber = 0;
-        driver.data = new Data();
+        Driver.data = new Data();
         driver.printAvailableData();
 
         System.out.println ("> Generation Number: " + generationNumber);
@@ -28,8 +28,8 @@ public class Driver {
         System.out.println("-------------------------------------------------------------------------------------------"+
                            "-------------------------------------------------------------------------------------------");
 
-        GeneticAlg geneticAlgorithm = new GeneticAlg(driver.data);
-        Population population = new Population(Driver.POPULATION_SIZE, driver.data).sortByFitness();
+        GeneticAlg geneticAlgorithm = new GeneticAlg(Driver.data);
+        Population population = new Population(Driver.POPULATION_SIZE, Driver.data).sortByFitness();
         population.getSchedules().forEach(schedule -> System.out.println("     " + driver.scheduleNumber++ + "     | " + schedule + " | " + String.format(".5%f", schedule.getFitness()) + " | " + schedule.getNumberOfConflicts()));
     }
 
@@ -45,7 +45,7 @@ public class Driver {
             int majorIndex = data.getDepts().indexOf(x.getDept());
             int courseIndex = data.getCourses().indexOf(x.getCourse());
             int venuesIndex = data.getVenues().indexOf(x.getVenue());
-            int instructorIndex = data.getInstructor().indexOf(x.getInstructor());
+            int instructorIndex = data.getInstructors().indexOf(x.getInstructor());
             int meetingIndex = data.getMeetingTimes().indexOf(x.getMeetingTime());
             System.out.print("                     ");
             System.out.print(String.format(" %1$02d ", classNumber) + " | ");
@@ -73,6 +73,5 @@ public class Driver {
                            "-------------------------------------------------------------------------------------------");
         System.out.println("-------------------------------------------------------------------------------------------"+
                            "-------------------------------------------------------------------------------------------");
-
     }
 }
