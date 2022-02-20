@@ -28,11 +28,22 @@ public class Data {
         venues = new ArrayList<Venue>(Arrays.asList(venue1, venue2, venue3, venue4));
 
         //Meeting Times
-        MeetingTime meetingTime1 = new MeetingTime("MT1", "OHP 09:00 - 10:00");
-        MeetingTime meetingTime2 = new MeetingTime("MT2", "OHP 10:00 - 11:00");
-        MeetingTime meetingTime3 = new MeetingTime("MT3", "THP 09:00 - 11:00");
-        MeetingTime meetingTime4 = new MeetingTime("MT4", "THP 11:00 - 13:00");
-        meetingTimes = new ArrayList<MeetingTime>(Arrays.asList(meetingTime1, meetingTime2, meetingTime3, meetingTime4));
+        String[][] timeStrings = {
+            {"MT1", "OHP 09:00 - 10:00 Monday"},
+            {"MT2", "OHP 09:00 - 10:00 Tuesday"},
+            {"MT1", "OHP 09:00 - 10:00 Wednesday"},
+            {"MT1", "OHP 11:00 - 13:00 Wednesday"},
+            {"MT1", "OHP 09:00 - 10:00 Friday"},
+            {"MT1", "OHP 12:00 - 14:00 Friday"},
+        };
+
+        // MeetingTime meetingTime1 = new MeetingTime("MT1", "OHP 09:00 - 10:00");
+        
+        meetingTimes = new ArrayList<MeetingTime>();
+        for (String[] tm: timeStrings) {
+            MeetingTime e = new MeetingTime(tm[0], tm[1]);
+            meetingTimes.add(e);
+        }
 
         //Instructors
         Instructor instructor1 = new Instructor("I1", "Dr. Andongyse");

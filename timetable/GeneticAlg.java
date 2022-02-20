@@ -59,5 +59,4 @@ public class GeneticAlg {
         return tournamentPopulation;
     }
 
-
 }
