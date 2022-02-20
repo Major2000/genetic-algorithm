@@ -32,7 +32,7 @@ public class Driver {
 
         driver.printScheduleAsTable(population.getSchedules().get(0), generationNumber);
 
-        driver.classNumber = 1;
+        Driver.classNumber = 1;
 
         while (population.getSchedules().get(0).getFitness() != 1.0) {
             System.out.println("> Generation Number: " + ++generationNumber);
@@ -48,7 +48,7 @@ public class Driver {
 
             driver.printScheduleAsTable(population.getSchedules().get(0), generationNumber);
 
-            driver.classNumber = 1;    
+            Driver.classNumber = 1;    
         }
     }
 

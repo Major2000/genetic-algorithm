@@ -29,3 +29,4 @@ public class Class {
         return "[" + dept.getName() + ", " + course.getNumber() + ", " + venue.getNumber() + ", " + instructor.getId() + ", " + meetingTime.getId() + "]";
     }
 }
+ 
