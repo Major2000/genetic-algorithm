@@ -60,4 +60,11 @@ public class Schedule {
        });
        return 1 / (double) (numberOfConflicts + 1);
     }
+
+    public String toString() {
+        String returnValue = new String();
+        for (int x = 0; x < classes.size() - 1; x++) returnValue += classes.get(x) + ",";
+        returnValue += classes.get(classes.size() - 1);
+        return returnValue;
+    }
 }
