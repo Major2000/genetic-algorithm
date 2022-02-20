@@ -77,7 +77,7 @@ public class Driver {
             classNumber++;
         });
 
-        if (schedule.getFitness() == 1) System.out.println("> Solution Found in " + (generation + 1) + "generations");
+        if (schedule.getFitness() == 1) System.out.println("> Solution Found in " + (generation + 1) + " generations");
         System.out.print("-----------------------------------------------------------------------");
         System.out.println("------------------------------------------------------------------------");
                 
