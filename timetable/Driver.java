@@ -24,16 +24,18 @@ public class Driver {
         System.out.print("Classes [Dept,Class,Venue,Instructor,Meeting-Time]                                     ");
         System.out.println("                                                                | Fitness | Conflicts");
         System.out.println("-------------------------------------------------------------------------------------------"+
-                           "-------------------------------------------------------------------------------------------");
+                           "--------------------------------------------");
         System.out.println("-------------------------------------------------------------------------------------------"+
-                           "-------------------------------------------------------------------------------------------");
+                           "--------------------------------------------");
 
         GeneticAlg geneticAlgorithm = new GeneticAlg(driver.data);
         Population population = new Population(Driver.POPULATION_SIZE, driver.data).sortByFitness();
         population.getSchedules().forEach(schedule -> System.out.println("     " + driver.scheduleNumber++ + "     | " + schedule + " | " + String.format(".5%f", schedule.getFitness()) + " | " + schedule.getNumberOfConflicts()));
+
+        driver.printScheduleAsTable(population.getSchedules().get(0), generationNumber);
     }
 
-    private static void printScheduleAsTable(Schedule schedule, int generation) {
+    private void printScheduleAsTable(Schedule schedule, int generation) {
         ArrayList<Class> classes = schedule.getClasses();
         System.out.print("\n                         ");
         System.out.println("Class Number | Dept | Course (Number, Max No.of Students | Room (Capacity) | Instructor (Id) | Meeting Time (Id)");
@@ -45,12 +47,23 @@ public class Driver {
             int majorIndex = data.getDepts().indexOf(x.getDept());
             int courseIndex = data.getCourses().indexOf(x.getCourse());
             int venuesIndex = data.getVenues().indexOf(x.getVenue());
-            int instructorIndex = data.getInstructor().indexOf(x.getInstructor());
+            int instructorIndex = data.getInstructors().indexOf(x.getInstructor());
             int meetingIndex = data.getMeetingTimes().indexOf(x.getMeetingTime());
             System.out.print("                     ");
             System.out.print(String.format(" %1$02d ", classNumber) + " | ");
+            System.out.print(String.format("%1$4s", data.getDepts().get(majorIndex).getName()) + " | ");
+            System.out.print(String.format("%1$21s", data.getCourses().get(courseIndex).getName() + " (" + data.getCourses().get(courseIndex).getNumber() + ", " + x.getCourse().getMaxNumberOfStudents()) + ")     | ");
+            System.out.print(String.format("%1$10s", data.getVenues().get(venuesIndex).getNumber() + " (" + x.getVenue().getSeatingCapacity()) + ")     | ");
+            System.out.print(String.format("%1$15s", data.getInstructors().get(instructorIndex).getName() + " (" + data.getInstructors().get(instructorIndex).getId() + ")") + "  | ");
+            System.out.println(data.getMeetingTimes().get(meetingIndex).getTime() + " (" + data.getMeetingTimes().get(meetingIndex).getId() + ")");
+
+            classNumber++;
         });
-        
+
+        if (schedule.getFitness() == 1) System.out.println("> Solution Found in " + (generation + 1) + "generations");
+        System.out.print("-----------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------");
+                
     }
 
     private void printAvailableData() {
@@ -70,9 +83,9 @@ public class Driver {
         data.getMeetingTimes().forEach(x -> System.out.println("Id: " + x.getId() + ", Meeting Time: " + x.getTime()));
 
         System.out.println("-------------------------------------------------------------------------------------------"+
-                           "-------------------------------------------------------------------------------------------");
+                           "-----------------------------------");
         System.out.println("-------------------------------------------------------------------------------------------"+
-                           "-------------------------------------------------------------------------------------------");
+                           "-----------------------------------");
 
     }
 }
