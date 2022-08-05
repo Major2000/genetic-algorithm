@@ -21,20 +21,20 @@ public class Data {
     private Data initialize() {
 
         //Venues
-        Venue venue1 = new Venue("LUHANGA", 100);
+        Venue venue1 = new Venue("LUHG", 100);
         Venue venue2 = new Venue("B106", 80);
         Venue venue3 = new Venue("B305", 70);
-        Venue venue4 = new Venue("D28", 90);
+        Venue venue4 = new Venue("D028", 90);
         venues = new ArrayList<Venue>(Arrays.asList(venue1, venue2, venue3, venue4));
 
         //Meeting Times
         String[][] timeStrings = {
-            {"MT1", "OHP 09:00 - 10:00 Monday"},
-            {"MT2", "OHP 09:00 - 10:00 Tuesday"},
-            {"MT1", "OHP 09:00 - 10:00 Wednesday"},
-            {"MT1", "OHP 11:00 - 13:00 Wednesday"},
-            {"MT1", "OHP 09:00 - 10:00 Friday"},
-            {"MT1", "OHP 12:00 - 14:00 Friday"},
+            {"MT1", "OHP 09:00 - 10:00 Mon"},
+            {"MT2", "OHP 09:00 - 10:00 Tue"},
+            {"MT1", "OHP 09:00 - 10:00 Wed"},
+            {"MT1", "OHP 11:00 - 13:00 Wed"},
+            {"MT1", "OHP 09:00 - 10:00 Fri"},
+            {"MT1", "OHP 12:00 - 14:00 Fri"},
         };
 
         // MeetingTime meetingTime1 = new MeetingTime("MT1", "OHP 09:00 - 10:00");
@@ -46,9 +46,9 @@ public class Data {
         }
 
         //Instructors
-        Instructor instructor1 = new Instructor("I1", "Dr. Andongyse");
-        Instructor instructor2 = new Instructor("I2", "Mr. John Web");
-        Instructor instructor3 = new Instructor("I3", "Ms. Suzana Inn");
+        Instructor instructor1 = new Instructor("I1", "Dr. Andongyse   ");
+        Instructor instructor2 = new Instructor("I2", "Mr. John Web    ");
+        Instructor instructor3 = new Instructor("I3", "Ms. Suzana Inn  ");
         Instructor instructor4 = new Instructor("I4", "Prof. Inuza Kinn");
         instructors = new ArrayList<Instructor>(Arrays.asList(instructor1, instructor2, instructor3, instructor4));
 
@@ -64,8 +64,8 @@ public class Data {
 
         //Departments
         Department dept1 = new Department("MATHEMATICS", new ArrayList<Course>(Arrays.asList(course1, course3)));
-        Department dept2 = new Department("COMPUTER SCIENCE", new ArrayList<Course>(Arrays.asList(course7)));
-        Department dept3 = new Department("ETE", new ArrayList<Course>(Arrays.asList(course2, course4, course5, course6)));
+        Department dept2 = new Department("COMPUTER SC", new ArrayList<Course>(Arrays.asList(course7)));
+        Department dept3 = new Department("    ETE    ", new ArrayList<Course>(Arrays.asList(course2, course4, course5, course6)));
         depts = new ArrayList<Department>(Arrays.asList(dept1, dept2, dept3));
         depts.forEach(x -> numberOfClasses += x.getCourses().size());
 

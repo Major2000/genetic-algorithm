@@ -36,15 +36,15 @@ public class Driver {
 
         while (population.getSchedules().get(0).getFitness() != 1.0) {
             System.out.println("> Generation Number: " + ++generationNumber);
-            System.out.print("  Schedule NUmber |");
+            System.out.print("  Schedule NUmber | ");
             System.out.print("Classes [Dept,Class,Venue,Instructor,Meeting-Time] ");
             System.out.println("| Fitness | Conflicts");
-            System.out.println("------------------------------------------------------------------");
-            System.out.println("-----------------------------------------------------------------");
+            System.out.print("-----------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------");
             
             population = geneticAlgorithm.evolve(population).sortByFitness();
             driver.scheduleNumber = 0;
-            population.getSchedules().forEach(schedule -> System.out.println("     " + driver.scheduleNumber++ + "     | " + schedule + " | " + String.format(".5%f", schedule.getFitness()) + " | " + schedule.getNumberOfConflicts()));
+            population.getSchedules().forEach(schedule -> System.out.println("          " + driver.scheduleNumber++ + "       | " + schedule + " | " + String.format(".5%f", schedule.getFitness()) + " | " + schedule.getNumberOfConflicts()));
 
             driver.printScheduleAsTable(population.getSchedules().get(0), generationNumber);
 
@@ -55,10 +55,11 @@ public class Driver {
     private void printScheduleAsTable(Schedule schedule, int generation) {
         ArrayList<Class> classes = schedule.getClasses();
         System.out.print("\n");
-        System.out.println("Class Number | Dept | Course (Number, Max No.of Students | Room (Capacity) | Instructor (Id) | Meeting Time (Id)");
-        System.out.print("                            ");
-        System.out.print("--------------------------------------------------------");
-        System.out.println("------------------------------------------------------");
+        System.out.print("             ");
+        System.out.println("Class Number |    Dept     | Course (Number, Max No.of Students | Room (Capacity) |    Instructor (Id)     | Meeting Time (Id)");
+        System.out.print("              ");
+        System.out.print("---------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------");
 
         classes.forEach(x -> {
             int majorIndex = data.getDepts().indexOf(x.getDept());
@@ -69,7 +70,7 @@ public class Driver {
             System.out.print("                     ");
             System.out.print(String.format(" %1$02d ", classNumber) + " | ");
             System.out.print(String.format("%1$4s", data.getDepts().get(majorIndex).getName()) + " | ");
-            System.out.print(String.format("%1$21s", data.getCourses().get(courseIndex).getName() + " (" + data.getCourses().get(courseIndex).getNumber() + ", " + x.getCourse().getMaxNumberOfStudents()) + ")     | ");
+            System.out.print(String.format("%1$21s", data.getCourses().get(courseIndex).getName() + " (" + data.getCourses().get(courseIndex).getNumber() + ", " + x.getCourse().getMaxNumberOfStudents()) + ")             | ");
             System.out.print(String.format("%1$10s", data.getVenues().get(venuesIndex).getNumber() + " (" + x.getVenue().getSeatingCapacity()) + ")     | ");
             System.out.print(String.format("%1$15s", data.getInstructors().get(instructorIndex).getName() + " (" + data.getInstructors().get(instructorIndex).getId() + ")") + "  | ");
             System.out.println(data.getMeetingTimes().get(meetingIndex).getTime() + " (" + data.getMeetingTimes().get(meetingIndex).getId() + ")");
@@ -78,8 +79,8 @@ public class Driver {
         });
 
         if (schedule.getFitness() == 1) System.out.println("> Solution Found in " + (generation + 1) + " generations");
-        System.out.print("-----------------------------------------------------------------------");
-        System.out.println("------------------------------------------------------------------------");
+        System.out.print("-----------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------");
                 
     }
 
